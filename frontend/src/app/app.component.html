@@ -1,0 +1,27 @@
+<div class="main">
+  <h1>Cuidados necessários com <em>Observables</em></h1>
+  <div class="row justify-content-center">
+    <div class="row__item">
+      <app-counter (changed)="emitirContagem($event)"></app-counter>
+    </div>
+    <div class="row__item col">
+      <app-display
+        [contagem$]="contagem$.asObservable()"
+        *ngIf="exibir"
+      ></app-display>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="row__item align-items-center">
+      <div>
+        <button
+          type="button"
+          (click)="alternarExibicao()"
+          style="font-size: 1.2rem"
+        >
+          {{ exibir ? "Remover espelhamento" : "Adicionar espelhamento" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

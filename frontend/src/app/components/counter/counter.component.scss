@@ -1,0 +1,30 @@
+.counter {
+    &__number {
+        font-size: 4rem;
+        font-weight: 900;
+        width: 100px;
+        text-align: center;
+    }
+
+    &__button {
+        transition-property: box-shadow;
+        transition-duration: 150ms;
+        transition-timing-function: linear;
+        display: inline-block;
+        background-color: transparent;
+        border-radius: 0.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        font-size: 2rem;
+        // padding: clamp(2px, 4px, 6px);
+        // width: 50px;
+        // aspect-ratio: 1 / 1;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            box-shadow: inset 1rem 1rem 0.5rem -0.75rem rgba(255, 255, 255, 0.3), 0 0 1rem rgba(255, 255, 255, 0.5);
+        }
+        &:active {
+            background-color: rgba(var(--primary-light-rgb), 0.4);
+        }
+    }
+}

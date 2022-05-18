@@ -1,0 +1,13 @@
+.panel {
+    background: #1976d2;
+    color: white;
+    width: 220px;
+}
+.counter {
+    &__number {
+        font-size: 4rem;
+        font-weight: 900;
+        width: 100px;
+        text-align: center;
+    }
+}

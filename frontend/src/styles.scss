@@ -1,0 +1,223 @@
+/* You can add global styles to this file, and also import other style files */
+@import "reset";
+// @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,400;1,900&display=swap");
+:root {
+    --white-rgb: 250, 250, 250;
+    --white: rgb(var(--white-rgb));
+    --primary-light-rgb: 68, 68, 68;
+    --primary-dark-rgb: 14, 14, 14;
+    --color: #444;
+    --color-rgb: 68, 68, 68;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    // background-color: ;
+    // background: linear-gradient(180deg, rgba(var(--primary-light-rgb), 1) 0%, rgba(var(--primary-dark-rgb), 1) 100%);
+    // background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+    // background: linear-gradient(90deg, #00c9ff 0%, #92fe9d 100%);
+    // background-image: linear-gradient(to bottom, #1f0537, #1d3870, #006ba4, #00a1ce, #12d8eb);
+    // background-image: linear-gradient(to bottom, #800fe7, #0070ff, #009cff, #00bdff, #12d8eb);
+
+    background: #74ebd5; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #acb6e5, #74ebd5); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #acb6e5,
+        #74ebd5
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background: #ff9966; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #ff5e62,
+        #ff9966
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background: #c9d6ff; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #e2e2e2, #c9d6ff); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #e2e2e2,
+        #c9d6ff
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background: #333;
+
+    // background-color: black;
+    color: var(--color);
+    // font-size: 1rem;
+    height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 0 0 2rem;
+}
+
+.main {
+    padding: 2rem;
+}
+.code {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.code + .result {
+    margin-top: 2rem;
+}
+
+.result {
+    padding: 1rem;
+    font-size: 0.9rem;
+    border: 1px dashed rgba(var(--color-rgb), 0.5);
+
+    &__label {
+        margin-right: 1rem;
+    }
+    &__text {
+        font-family: monospace;
+        font-weight: 500;
+        // border: 1px solid rgba(var(--color-rgb), 0.2);
+        // padding: 1rem;
+        // background-color: #fdd;
+    }
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+
+    transition-property: all;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+    + .row {
+        margin-top: 2rem;
+    }
+
+    &__item {
+        display: flex;
+        // background-color: lime;
+    }
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.ratio1-1 {
+    aspect-ratio: 1/1;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.panel {
+    background-color: white;
+    // background-color: rgba(var(--white-rgb), 0.4);
+    // box-shadow: inset 1rem 1rem 0.5rem -0.75rem rgba(255, 255, 255, 0.3), 0 0 1rem rgba(255, 255, 255, 0.5);
+    // border: 1px solid rgba(255, 255, 255, 0.7);
+    // background-color: #fefefe;
+    padding: 1.25rem 1rem 3rem;
+    border-radius: 0.25rem;
+}
+
+.code {
+    background-color: #333;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    color: #ddd;
+    position: relative;
+
+    &::before {
+        content: "File: comparativo.component.html (trecho)";
+        font-size: 0.8rem;
+        position: absolute;
+        top: -1.6rem;
+        left: -5px;
+        line-height: 1rem;
+        background-color: transparent;
+        z-index: 999;
+        padding: 0.2rem 0.5rem;
+        color: var(--color);
+        border-radius: 0.25rem;
+    }
+
+    &::after {
+        content: "---";
+        font-size: 1.3rem;
+        position: absolute;
+        bottom: -1.25rem;
+        right: 2.25rem;
+        line-height: 1rem;
+        background-color: blue;
+        z-index: 999;
+        padding: 0.5rem;
+        color: var(--white);
+        border-radius: 0.25rem;
+    }
+
+    pre {
+        font-size: 14px;
+        font-weight: 500;
+        font-family: monospace;
+        line-height: 1.2rem;
+    }
+    pre + pre {
+        margin-top: 0.25rem;
+    }
+}
+
+.correto {
+    // background-color: rgba(11, 156, 11, 1);
+    border: 5px solid green;
+    // text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    &::after {
+        content: "✅";
+        background-color: green;
+        border: 5px solid green;
+    }
+}
+
+.errado {
+    border: 5px solid red;
+    // border: 5px solid red;
+    &::after {
+        content: "❌";
+        background-color: rgb(255, 200, 230);
+        border: 5px solid red;
+    }
+    // text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.main {
+    h1 {
+        color: #eee;
+        text-align: center;
+    }
+}

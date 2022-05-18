@@ -1,0 +1,20 @@
+<div class="panel">
+  <div class="counter">
+    <h3>Contador</h3>
+    <div class="row align-items-center" style="flex-wrap: nowrap">
+      <div class="row__item align-items-center">
+        <button type="button" class="counter__button" (click)="decrement()">
+          -
+        </button>
+      </div>
+      <div class="row__item align-items-center">
+        <div class="counter__number">{{ counter }}</div>
+      </div>
+      <div class="row__item align-items-center">
+        <button type="button" class="counter__button" (click)="increment()">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
