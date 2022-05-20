@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-display',
@@ -12,25 +12,32 @@ export class DisplayComponent implements OnInit, OnDestroy {
 
   valor: number = 0;
 
+  destroy$ = new Subject<void>();
+
   constructor() {}
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 
   ngOnInit(): void {
-    this.contagem$.subscribe((emissaoContagem) => {
-      this.valor = emissaoContagem;
+    this.contagem$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((emissaoContagem) => {
+        this.valor = emissaoContagem;
 
-      if (emissaoContagem > 5) {
-        this.valor = emissaoContagem * 2;
+        if (emissaoContagem > 5) {
+          this.valor = emissaoContagem * 2;
 
-        document.body.style.borderWidth = '10px';
-        document.body.style.borderStyle = 'solid';
-        document.body.style.borderColor = 'red';
-      } else {
-        document.body.style.borderWidth = '';
-        document.body.style.borderStyle = '';
-        document.body.style.borderColor = '';
-      }
-    });
+          document.body.style.borderWidth = '10px';
+          document.body.style.borderStyle = 'solid';
+          document.body.style.borderColor = 'red';
+        } else {
+          document.body.style.borderWidth = '';
+          document.body.style.borderStyle = '';
+          document.body.style.borderColor = '';
+        }
+      });
   }
 }
